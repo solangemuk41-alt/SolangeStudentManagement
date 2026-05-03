@@ -1,16 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.studentmanagement.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="org.example.studentmanagement.HelloController" styleClass="app-root">
+    <top>
+        <VBox spacing="6.0" styleClass="app-header">
+            <padding>
+                <Insets top="16.0" right="16.0" bottom="12.0" left="16.0" />
+            </padding>
+            <Label text="Student Management System" styleClass="app-title" />
+            <Label text="Manage students, teachers, courses and grades." styleClass="app-subtitle" />
+        </VBox>
+    </top>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+    <center>
+        <StackPane alignment="CENTER" maxWidth="Infinity" maxHeight="Infinity">
+            <HBox fx:id="authPane" spacing="0.0" alignment="CENTER_LEFT" styleClass="content-panel auth-split" maxWidth="Infinity" maxHeight="Infinity">
+                <StackPane alignment="CENTER_LEFT" styleClass="auth-login-shell" minWidth="280.0" prefWidth="1.0" maxWidth="Infinity" maxHeight="Infinity" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets top="32.0" right="28.0" bottom="32.0" left="32.0" />
+                    </padding>
+                    <VBox spacing="14.0" styleClass="auth-login-panel" alignment="TOP_LEFT" maxWidth="400.0">
+                        <Label text="Login" styleClass="section-title"/>
+                        <TextField fx:id="loginUsernameField" promptText="Username"/>
+                        <PasswordField fx:id="loginPasswordField" promptText="Password"/>
+                        <Button text="Login" onAction="#onLogin" styleClass="primary-button login-btn"/>
+                        <Hyperlink text="Don't have an account? Student Sign Up" onAction="#onOpenSignup" styleClass="signup-link"/>
+                    </VBox>
+                </StackPane>
+                <StackPane alignment="CENTER" styleClass="auth-image-panel" minWidth="280.0" prefWidth="1.0" maxWidth="Infinity" maxHeight="Infinity" HBox.hgrow="ALWAYS">
+                    <VBox spacing="18.0" alignment="CENTER" styleClass="hero-content">
+                        <padding>
+                            <Insets top="28.0" right="36.0" bottom="36.0" left="36.0" />
+                        </padding>
+                        <StackPane styleClass="hero-photo-frame">
+                            <ImageView fitWidth="500.0" fitHeight="500.0" preserveRatio="false" smooth="true" pickOnBounds="true" styleClass="hero-image">
+                                <image>
+                                    <Image url="@managment-software.png"/>
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                        <Label text="Grow With Better Learning Management" styleClass="hero-caption" alignment="CENTER" wrapText="true" textAlignment="CENTER"/>
+                    </VBox>
+                </StackPane>
+            </HBox>
+
+            <VBox fx:id="signupPane" spacing="12.0" styleClass="content-panel auth-card" maxWidth="470.0" visible="false" managed="false">
+                <padding>
+                    <Insets top="20.0" right="20.0" bottom="20.0" left="20.0" />
+                </padding>
+                <Label text="Student Sign Up" styleClass="section-title"/>
+                <TextField fx:id="signupFullNameField" promptText="Full name"/>
+                <TextField fx:id="signupAgeField" promptText="Age"/>
+                <TextField fx:id="signupUsernameField" promptText="Username"/>
+                <PasswordField fx:id="signupPasswordField" promptText="Password"/>
+                <Button text="Create Account" onAction="#onSignUp" styleClass="primary-button login-btn"/>
+                <Hyperlink text="Back to Login" onAction="#onBackToLogin" styleClass="signup-link"/>
+            </VBox>
+
+            <VBox fx:id="supervisorPane" spacing="12.0" styleClass="content-panel" visible="false" managed="false">
+                <padding>
+                    <Insets top="14.0" right="14.0" bottom="14.0" left="14.0" />
+                </padding>
+                <HBox spacing="12.0">
+                    <Label text="Supervisor Dashboard" styleClass="section-title"/>
+                    <Button text="Logout" onAction="#onLogout"/>
+                </HBox>
+
+                <Label text="Teacher management"/>
+                <HBox spacing="8.0">
+                    <TextField fx:id="supervisorTeacherNameField" promptText="Teacher full name"/>
+                    <TextField fx:id="supervisorTeacherAgeField" promptText="Age"/>
+                    <TextField fx:id="supervisorTeacherUsernameField" promptText="Teacher username"/>
+                    <PasswordField fx:id="supervisorTeacherPasswordField" promptText="Password"/>
+                    <TextField fx:id="supervisorTeacherSubjectField" promptText="Subject"/>
+                    <Button text="Add" onAction="#onAddTeacher" styleClass="primary-button"/>
+                </HBox>
+
+                <Label text="More actions"/>
+                <HBox spacing="8.0">
+                    <TextField fx:id="supervisorRemoveTeacherUsernameField" promptText="Username to remove"/>
+                    <Button text="Remove" onAction="#onRemoveTeacher"/>
+                    <TextField fx:id="supervisorSearchTeacherField" promptText="Search by username/name/subject"/>
+                    <Button text="Search" onAction="#onSearchTeacher"/>
+                    <Button text="Sort" onAction="#onSortTeachers"/>
+                </HBox>
+
+                <Label text="Create Course and Assign Teacher"/>
+                <HBox spacing="8.0">
+                    <TextField fx:id="supervisorCourseNameField" promptText="Course name"/>
+                    <ChoiceBox fx:id="supervisorAssignTeacherChoice"/>
+                    <Button text="Assign Course" onAction="#onAssignCourse" styleClass="primary-button"/>
+                </HBox>
+
+                <HBox spacing="12.0">
+                    <TableView fx:id="supervisorTeachersTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colSupTeacherUsername" prefWidth="130.0" text="Username"/>
+                            <TableColumn fx:id="colSupTeacherName" prefWidth="180.0" text="Name"/>
+                            <TableColumn fx:id="colSupTeacherSubject" prefWidth="140.0" text="Subject"/>
+                        </columns>
+                    </TableView>
+                    <TableView fx:id="supervisorCoursesTable" VBox.vgrow="ALWAYS">
+                        <columns>
+                            <TableColumn fx:id="colSupCourseName" prefWidth="180.0" text="Course"/>
+                            <TableColumn fx:id="colSupCourseTeacher" prefWidth="180.0" text="Teacher Username"/>
+                        </columns>
+                    </TableView>
+                </HBox>
+            </VBox>
+
+            <VBox fx:id="teacherPane" spacing="12.0" styleClass="content-panel" visible="false" managed="false">
+                <padding>
+                    <Insets top="14.0" right="14.0" bottom="14.0" left="14.0" />
+                </padding>
+                <HBox spacing="12.0">
+                    <Label text="Teacher Dashboard" styleClass="section-title"/>
+                    <Button text="Logout" onAction="#onLogout"/>
+                </HBox>
+
+                <Label text="Enrolled students in your courses"/>
+                <TableView fx:id="teacherEnrollmentsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colTeacherStudent" prefWidth="180.0" text="Student Username"/>
+                        <TableColumn fx:id="colTeacherCourse" prefWidth="220.0" text="Course"/>
+                        <TableColumn fx:id="colTeacherMarks" prefWidth="140.0" text="Marks"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="8.0">
+                    <TextField fx:id="teacherGradeStudentField" promptText="Student username"/>
+                    <TextField fx:id="teacherGradeCourseField" promptText="Course name"/>
+                    <TextField fx:id="teacherGradeMarksField" promptText="Marks"/>
+                    <Button text="Save Grade" onAction="#onTeacherAssignGrade" styleClass="primary-button"/>
+                </HBox>
+            </VBox>
+
+            <VBox fx:id="studentPane" spacing="12.0" styleClass="content-panel" visible="false" managed="false">
+                <padding>
+                    <Insets top="14.0" right="14.0" bottom="14.0" left="14.0" />
+                </padding>
+                <HBox spacing="12.0">
+                    <Label text="Student Dashboard" styleClass="section-title"/>
+                    <Button text="Logout" onAction="#onLogout"/>
+                </HBox>
+                <HBox spacing="8.0">
+                    <ChoiceBox fx:id="studentCourseChoice"/>
+                    <Button text="Enroll In Course" onAction="#onStudentEnrollCourse" styleClass="primary-button"/>
+                </HBox>
+                <TableView fx:id="studentMyCoursesTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colStudentCourse" prefWidth="230.0" text="Course"/>
+                        <TableColumn fx:id="colStudentTeacher" prefWidth="200.0" text="Teacher Username"/>
+                        <TableColumn fx:id="colStudentMarks" prefWidth="160.0" text="My Marks"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </StackPane>
+    </center>
+
+    <bottom>
+        <Label fx:id="statusText" styleClass="status-bar" text="Ready">
+            <BorderPane.margin>
+                <Insets top="10.0" right="16.0" bottom="14.0" left="16.0" />
+            </BorderPane.margin>
+        </Label>
+    </bottom>
+</BorderPane>

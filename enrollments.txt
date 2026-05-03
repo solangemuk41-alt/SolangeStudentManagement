@@ -1,0 +1,5 @@
+ange,system management,akaliza,80.0
+linda,system management,akaliza,60.0
+jully,frontend,pedos,70.0
+denise,frontend,pedos,90.0
+liliane,Database,peter,73.0

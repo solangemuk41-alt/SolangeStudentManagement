@@ -1,0 +1,12 @@
+supervisor,admin123,SUPERVISOR,Main Supervisor
+sarah,12345,STUDENT,Sarah mugeni
+solange,soso@123,STUDENT,solange m
+akaliza,admin123,TEACHER,Akaliza Ester
+ange,admin123,STUDENT,ange umuhoza
+linda,admin123,STUDENT,umutesi linda
+mucyo,admin123,STUDENT,mucyo dushime
+pedos,admin123,TEACHER,Ishimwe Pedos
+jully,admin123,STUDENT,Ikuzwe jully
+denise,admin123,STUDENT,denise UWITONZE
+peter,admin123,TEACHER,GASANA peter
+liliane,admin123,STUDENT,Tumukunde Liliane

@@ -1,0 +1,179 @@
+.root {
+    -fx-font-family: "Segoe UI", "Inter", sans-serif;
+    -fx-background-color: linear-gradient(to bottom, #17345c, #102a4c);
+}
+
+.app-header {
+    -fx-background-color: linear-gradient(to right, #17447a, #1b4678);
+    -fx-background-radius: 0 0 16 16;
+}
+
+.app-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+}
+
+.app-subtitle {
+    -fx-text-fill: #c9dbf5;
+    -fx-font-size: 13px;
+}
+
+.content-tabs *.tab-header-background {
+    -fx-background-color: #e6edf7;
+}
+
+.content-tabs .tab {
+    -fx-background-color: #d7e2f0;
+    -fx-padding: 8 14 8 14;
+}
+
+.content-tabs .tab:selected {
+    -fx-background-color: #ffffff;
+}
+
+.content-panel {
+    -fx-background-color: #112b4b;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: #274d77;
+    -fx-border-width: 0;
+}
+
+.auth-card {
+    -fx-alignment: center;
+}
+
+.auth-split {
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+}
+
+.auth-login-panel .text-field,
+.auth-login-panel .password-field {
+    -fx-min-width: 280;
+    -fx-pref-width: 320;
+    -fx-max-width: 520;
+}
+
+.auth-login-panel .signup-link {
+    -fx-wrap-text: true;
+    -fx-max-width: 520;
+}
+
+.auth-login-shell {
+    -fx-background-color: linear-gradient(to bottom right, #16354c, #16365f);
+}
+
+.auth-login-panel {
+    -fx-alignment: top-left;
+    -fx-background-color: transparent;
+}
+
+.auth-image-panel {
+    -fx-background-color: #0a1c34;
+    -fx-border-color: #2f5278;
+    -fx-border-width: 0 0 0 1;
+}
+
+.hero-content {
+    -fx-max-width: 520;
+    -fx-alignment: center;
+}
+
+.hero-photo-frame {
+    -fx-background-color: #071426;
+    -fx-border-color: rgba(255, 255, 255, 0.92);
+    -fx-border-width: 2;
+    -fx-border-radius: 0;
+    -fx-padding: 0;
+}
+
+.text-field,
+.password-field,
+.choice-box {
+    -fx-background-color: #f6f9ff;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #7ba0d1;
+    -fx-border-width: 1;
+    -fx-padding: 8 10 8 10;
+}
+
+.text-field:focused,
+.password-field:focused,
+.choice-box:focused {
+    -fx-border-color: #2f66b3;
+    -fx-background-color: #ffffff;
+}
+
+.section-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #eef4ff;
+}
+
+.button {
+    -fx-background-color: #1f5fad;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: 600;
+    -fx-background-radius: 8;
+    -fx-padding: 8 14 8 14;
+}
+
+.button:hover {
+    -fx-background-color: #194f90;
+}
+
+.login-btn {
+    -fx-min-width: 200;
+    -fx-pref-width: 320;
+    -fx-max-width: 520;
+}
+
+.table-view {
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #39608b;
+    -fx-border-width: 1;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #2a4b71;
+}
+
+.table-view .column-header,
+.table-view .filler {
+    -fx-size: 34;
+    -fx-border-color: transparent transparent #39608b transparent;
+}
+
+.table-row-cell:filled:selected {
+    -fx-background-color: #20466f;
+}
+
+.status-bar {
+    -fx-background-color: #112b4b;
+    -fx-background-radius: 8;
+    -fx-border-color: #345a86;
+    -fx-border-radius: 8;
+    -fx-padding: 10 12 10 12;
+    -fx-text-fill: #d7e8ff;
+}
+
+.signup-link {
+    -fx-text-fill: #8eb8f3;
+    -fx-border-color: transparent;
+}
+
+.hero-image {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.35), 8, 0.2, 0, 1);
+}
+
+.hero-caption {
+    -fx-font-size: 15px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 4 12 0 12;
+    -fx-text-alignment: center;
+}
